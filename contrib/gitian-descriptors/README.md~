@@ -1,5 +1,5 @@
 
---Updated 4/3/2014 by PercentagecoinDevs--
+--Updated 4/3/2014 by NovacoindarkDevs--
 --fixed QT source Links--
 --Updated to NovaCoinDark Folders--
 --updated links to boost 1_55_0
@@ -7,7 +7,7 @@
 
 
 
-<img src="http://209.208.111.8/splash.png" alt="Percentagecoin">
+<img src="http://209.208.111.8/splash.png" alt="Novacoindark">
 
 
 Gavin's notes on getting gitian builds up and running using KVM:
@@ -30,7 +30,7 @@ Sanity checks:
 
 Once you've got the right hardware and software:
 
-    git clone https://github.com/PercentageCoin/PercentageCoin.git
+    git clone https://github.com/IParn/novacoindark.git
     git clone https://github.com/devrandom/gitian-builder.git
     mkdir gitian-builder/inputs
     cd gitian-builder/inputs
@@ -54,22 +54,22 @@ Once you've got the right hardware and software:
     cd ..
 
     # Build Linux release:
-    cd percentagecoin
+    cd novacoindark
     git pull
     cd ../gitian-builder
     git pull
-    sudo ./bin/gbuild --commit percentagecoin=HEAD ../PercentageCoin/contrib/gitian-descriptors/gitian.yml
+    sudo ./bin/gbuild --commit novacoindark=HEAD ../novacoindark/contrib/gitian-descriptors/gitian.yml
 
     # Build Win32 dependencies: (only needs to be done once, or when dependency versions change)
-    sudo ./bin/gbuild --commit percentagecoin=HEAD ../PercentageCoin/contrib/gitian-descriptors/boost-win32.yml
+    sudo ./bin/gbuild --commit novacoindark=HEAD ../novacoindark/contrib/gitian-descriptors/boost-win32.yml
     mv build/out/*.* inputs/
-    sudo ./bin/gbuild --commit percentagecoin=HEAD ../PercentageCoin/contrib/gitian-descriptors/deps-win32.yml
+    sudo ./bin/gbuild --commit novacoindark=HEAD ../novacoindark/contrib/gitian-descriptors/deps-win32.yml
     mv build/out/*.* inputs/
-    sudo ./bin/gbuild --commit percentagecoin=HEAD ../PercentageCoin/contrib/gitian-descriptors/qt-win32.yml
+    sudo ./bin/gbuild --commit novacoindark=HEAD ../novacoindark/contrib/gitian-descriptors/qt-win32.yml
     mv build/out/*.* inputs/
 
     # Build Win32 release:
-    sudo ./bin/gbuild --commit percentagecoin=HEAD ../PercentageCoin/contrib/gitian-descriptors/gitian-win32.yml
+    sudo ./bin/gbuild --commit novacoindark=HEAD ../novacoindark/contrib/gitian-descriptors/gitian-win32.yml
 
 ---------------------
 
@@ -137,6 +137,6 @@ I stopped digging after the reboot solved the issue.)
 
 
 
-If you need more help please visit Percentagecoin Forum at www.Percentagecoin.org
+If you need more help please visit Novacoindark Forum at www.Novacoindark.org
 
 
