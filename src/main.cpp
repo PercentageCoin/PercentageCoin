@@ -31,7 +31,7 @@ CTxMemPool mempool;
 unsigned int nTransactionsUpdated = 0;
 
 map<uint256, CBlockIndex*> mapBlockIndex;
-uint256 hashGenesisBlock("0x000003763f2efaaaea62ceafaa4e4ab40fe1e8980173669ee9bffe2a379edd77"); //mainnet
+uint256 hashGenesisBlock("0x0000002e01984f6aaf5c223ec2933dc57b971e0d9970029bdc828cbd9bba307b"); //mainnet
 
 static CBigNum bnProofOfWorkLimit(~uint256(0) >> 20); // percentagecoin: starting difficulty is 1 / 2^12
 CBlockIndex* pindexGenesisBlock = NULL;
@@ -3104,7 +3104,7 @@ bool InitBlockIndex() {
         //   vMerkleTree: 97ddfbbae6
 
         // Genesis block        
-        const char* pszTimestamp = "2014-05-11 -- Last Pirate Bay co-founder caught and arrested ";
+        const char* pszTimestamp = "2014-06-11 -- iPhone and iPad get first serious virus";
         CTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
@@ -3116,29 +3116,20 @@ bool InitBlockIndex() {
         block.hashPrevBlock = 0;
         block.hashMerkleRoot = block.BuildMerkleTree();
         block.nVersion = 1;
-        block.nTime    = 1415132873;
+        block.nTime    = 1415261170;
         block.nBits    = 0x1e0ffff0;
-        block.nNonce   = 0;
+        block.nNonce   = 1183772;
 
         if (fTestNet)
         {
-            block.nTime    = 1415132872;
+            block.nTime    = 1415261171;
             block.nNonce   = 0;
         }
 
 
-        
-        //// debug print
-        //uint256 hash = block.GetHash();
-        //printf("%s\n", hash.ToString().c_str());
-        //printf("%s\n", hashGenesisBlock.ToString().c_str());
-        //printf("%s\n", block.hashMerkleRoot.ToString().c_str());
-        //assert(block.hashMerkleRoot == uint256("0x"));
-
-
         //Genesis Miner
 
-if (true && block.GetHash() != hashGenesisBlock)
+if (false && block.GetHash() != hashGenesisBlock)
         {
             printf("Searching for genesis block...\n");
             uint256 hashTarget = CBigNum().SetCompact(block.nBits).getuint256();
@@ -3165,14 +3156,16 @@ if (true && block.GetHash() != hashGenesisBlock)
             printf("block.nVersion = %u \n", block.nVersion);
             printf("block.GetHash = %s\n", block.GetHash().ToString().c_str());
         }
+	//End of genesis miner
+
+
         //// debug print
         uint256 hash = block.GetHash();
         printf("%s\n", hash.ToString().c_str());
         printf("%s\n", hashGenesisBlock.ToString().c_str());
         printf("%s\n", block.hashMerkleRoot.ToString().c_str());
-        assert(block.hashMerkleRoot == uint256("0x55f14362734e764d94c58f6cae3b7a52acb09bec230a7db638859fd6c5c3a3fc"));
+        assert(block.hashMerkleRoot == uint256("0x3127b90aa89c314063d07bf00b1dab111983627d09e9a0c50b8ca5d6d097b844"));
         
-	//End of genesis miner
 
         block.print();
         assert(hash == hashGenesisBlock);
